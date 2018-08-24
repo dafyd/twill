@@ -40,8 +40,12 @@ class TwillServiceProvider extends ServiceProvider
         ActivitylogServiceProvider::class,
     ];
 
+    protected $twillPath;
+
     public function boot()
     {
+        $this->twillPath = __DIR__."../";
+
         $this->requireHelpers();
 
         $this->publishConfigs();
@@ -129,7 +133,7 @@ class TwillServiceProvider extends ServiceProvider
         if (config('twill.enabled.users-management')) {
             config(['auth.providers.users' => require __DIR__ . '/../config/auth.php']);
             config(['mail.markdown.paths' => array_merge(
-                [__DIR__ . '/../views/emails'],
+                [$this->twillPath . 'views/emails'],
                 config('mail.markdown.paths')
             )]);
         }
