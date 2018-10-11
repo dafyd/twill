@@ -46,8 +46,6 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof $httpResponseExceptionClass) {
             return $e->getResponse();
-        } elseif ($e instanceof AuthenticationException) {
-            return $this->handleUnauthenticated($request, $e);
         } elseif ($e instanceof ValidationException) {
             return $this->convertValidationExceptionToResponse($e, $request);
         }
@@ -138,6 +136,15 @@ class Handler extends ExceptionHandler
         }
 
         $_ENV = [];
+    }
+
+    protected function handleUnauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
+
+        return redirect()->guest(route('admin.login'));
     }
 
     protected function invalidJson($request, ValidationException $exception)
