@@ -146,7 +146,7 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
 
-        return redirect()->guest(env("IS_ADMIN") ? 'admin.login' : 'login');
+        return redirect()->guest(route(env("IS_ADMIN") ? 'admin.login' : 'login'));
     }
 
     protected function invalidJson($request, ValidationException $exception)
