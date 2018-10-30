@@ -32,8 +32,8 @@ class File extends Model
         return [
             'id' => $this->id,
             'name' => $this->filename,
-            // 'src' => FileService::getUrl($this->uuid),
-            // 'original' => FileService::getUrl($this->uuid),
+            'src' => FileService::getUrl($this->uuid),
+            'original' => FileService::getUrl($this->uuid),
             'size' => $this->size,
         ];
     }
