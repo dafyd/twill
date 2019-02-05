@@ -1,5 +1,5 @@
 import Quill from 'quill'
-import { ImageResize } from 'quill-image-resize-module';
+import { ImageResize } from 'quill-image-resize-module'
 
 let Delta = Quill.import('delta')
 let Break = Quill.import('blots/break')
