@@ -221,7 +221,7 @@
       this.options.modules.clipboard = this.options.modules.clipboard !== undefined ? this.options.modules.clipboard : this.defaultModules.clipboard
       this.options.modules.keyboard = this.options.modules.keyboard !== undefined ? this.options.modules.keyboard : this.defaultModules.keyboard
       this.options.modules.syntax = this.options.modules.syntax !== undefined && this.options.modules.syntax ? { highlight: text => hljs.highlightAuto(text).value } : this.defaultModules.syntax
-      // this.options.modules.imageResize = this.options.modules.imageResize !== undefined ? this.options.modules.imageResize : this.defaultModules.imageResize
+      this.options.modules.imageResize = this.options.modules.imageResize !== undefined ? this.options.modules.imageResize : this.defaultModules.imageResize
       this.options.placeholder = this.options.placeholder || this.placeholder
       this.options.readOnly = this.options.readOnly !== undefined ? this.options.readOnly : this.readonly
       this.options.formats = QuillConfiguration.getFormats(this.options.modules.toolbar) // Formats are based on current toolbar configuration

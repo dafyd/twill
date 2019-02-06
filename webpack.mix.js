@@ -50,7 +50,7 @@ mix.webpackConfig({
     rules: [
       {
         test: /\.(js|vue)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules(?!\/quill-image-drop-module|quill-image-resize-module)/,
         loader: 'eslint-loader',
         enforce: 'pre',
         include: [path.resolve('frontend/js')],
