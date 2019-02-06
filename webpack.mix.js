@@ -36,10 +36,6 @@ mix.webpackConfig({
         }
         return module.context && module.context.indexOf('node_modules') !== -1
       }
-    }),
-    new webpack.ProvidePlugin({
-      'window.Quill': 'Quill',
-      'Quill': 'Quill'
     })
   ],
   module: {
