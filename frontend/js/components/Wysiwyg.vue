@@ -122,8 +122,8 @@
               lineBreak: QuillConfiguration.lineBreak.handle
             }
           },
-          syntax: false
-          // imageResize: { }
+          syntax: false,
+          imageResize: { }
         }
       }
     },

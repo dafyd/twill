@@ -1,12 +1,12 @@
 import Quill from 'quill'
-// import { ImageResize } from 'quill-image-resize-module'
+import { ImageResize } from 'quill-image-resize-module'
 
 let Delta = Quill.import('delta')
 let Break = Quill.import('blots/break')
 let Embed = Quill.import('blots/embed')
 let Link = Quill.import('formats/link')
 
-// Quill.register('modules/imageResize', ImageResize)
+Quill.register('modules/imageResize', ImageResize)
 
 /*
 * Support for shift enter

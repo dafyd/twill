@@ -21,6 +21,7 @@
     "flatpickr": "4.3.2",
     "lodash": "^4.17.11",
     "quill": "1.3.6",
+    "quill-image-resize-module": "dafyd/quill-image-resize-module#master",
     "smartcrop": "^2.0.3",
     "tinycolor2": "1.4.1",
     "truncate-utf8-bytes": "1.0.2",
