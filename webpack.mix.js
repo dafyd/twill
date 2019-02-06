@@ -40,6 +40,10 @@ mix.webpackConfig({
     new webpack.optimize.CommonsChunkPlugin({
       name: 'assets/admin/js/manifest',
       minChunks: Infinity
+    }),
+    new webpack.ProvidePlugin({
+      'window.Quill': 'quill',
+      'Quill': 'quill'
     })
   ],
   module: {
