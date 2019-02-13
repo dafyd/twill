@@ -50,7 +50,19 @@
               changed: (html) => {
                 this.handleInput(html)
                 return html
-              }
+              },
+              plugins: [
+                'alignment',
+                'fontcolor',
+                'fontfamily',
+                'fontsize',
+                // 'imagemanager',
+                'properties',
+                'specialchars',
+                'table',
+                'textdirection',
+                'video'
+              ]
             }
           }
 
