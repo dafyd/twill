@@ -4,7 +4,7 @@
       <input :name="name" type="hidden" v-model="value" />
       <template>
         <div class="wysiwyg" :class="textfieldClasses">
-          <Redactor v-model="value" placeholder="Type here..." :config="configOptions" />
+          <redactor v-model="value" placeholder="Type here..." :config="configOptions" />
         </div>
       </template>
     </div>
@@ -21,9 +21,12 @@
   import InputframeMixin from '@/mixins/inputFrame'
   import LocaleMixin from '@/mixins/locale'
 
+  import Redactor from '@/components/Redactor/Redactor'
+
   export default {
     name: 'A17Redactor',
     mixins: [InputMixin, InputframeMixin, LocaleMixin, FormStoreMixin],
+    components: {Redactor},
     props: {
       editSource: {
         type: Boolean,
@@ -77,6 +80,11 @@
         activeSource: false
       }
     },
+    watch: {
+      value (newValue, oldValue) {
+        this.textUpdate()
+      }
+    },
     methods: {
       updateFromStore: function (newValue) { // called from the formStore mixin
         if (typeof newValue === 'undefined') newValue = ''
@@ -88,15 +96,7 @@
       },
       textUpdate: debounce(function () {
         this.saveIntoStore() // see formStore mixin
-      }, 600),
-      toggleSourcecode: function () {
-        this.editorHeight = (Math.max(50, this.$refs.editor.clientHeight) + this.toolbarHeight - 1) + 'px'
-        this.activeSource = !this.activeSource
-
-        // set editor content
-        this.updateEditor(this.value)
-        this.saveIntoStore() // see formStore mixin
-      }
+      }, 600)
     },
     mounted: function () {
       this.configOptions = {}

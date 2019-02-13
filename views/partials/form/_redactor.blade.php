@@ -40,15 +40,6 @@
     $options = $customOptions ?? $toolbarOptions ?? false;
 @endphp
 
-@pushonce('extra_css:redactor')
-    <link rel="stylesheet" href="{{ asset("admin/js/redactor/redactor.min.css") }}">
-@endpushonce
-
-@pushonce('extra_js:redactor')
-    <script src="{{ asset("admin/js/redactor/redactor.min.js") }}"></script>
-    <script src="{{ asset("admin/js/redactor/redactor-vue.js") }}"></script>
-@endpushonce
-
 @if($translated)
     <a17-locale
         type="a17-redactor"
