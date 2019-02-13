@@ -55,8 +55,8 @@
             toolbarFixedTopOffset: 80,
             imageResizable: true,
             imagePosition: true,
-            buttonsAddAfter: { after: 'deleted', buttons: ['underline', 'sup', 'sub'] },
-            buttonsAdd: ['line', 'redo', 'undo', ],
+            buttonsAddAfter: { after: 'deleted', buttons: [ 'underline', 'sup', 'sub' ] },
+            buttonsAdd: [ 'line', 'redo', 'undo' ],
             plugins: [
               'alignment',
               'fontcolor',
