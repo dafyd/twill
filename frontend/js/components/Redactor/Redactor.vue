@@ -52,21 +52,22 @@
                 return html
               }
             },
-            fixedTopOffset: 80,
+            toolbarFixedTopOffset: 80,
             imageResizable: true,
             imagePosition: true,
-            buttonsAdd: ['line', 'redo', 'undo', 'underline', 'ol', 'ul', 'indent', 'outdent', 'sup', 'sub'],
+            buttonsAddAfter: { after: 'deleted', buttons: ['underline', 'sup', 'sub'] }
+            buttonsAdd: ['line', 'redo', 'undo', ],
             plugins: [
               'alignment',
               'fontcolor',
               'fontfamily',
               'fontsize',
               // 'imagemanager',
-              'properties',
+              // 'properties',
               'specialchars',
-              'table',
-              'textdirection',
-              'video'
+              'table'
+              // 'textdirection',
+              // 'video'
             ]
           }
 
