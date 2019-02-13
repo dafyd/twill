@@ -63,6 +63,7 @@ mix.webpackConfig({
 })
 
 mix.copyDirectory('frontend/fonts', 'public/assets/admin/fonts')
+mix.copyDirectory('frontend/js/libs/redactor', 'public/assets/admin/js/redactor')
 
 mix.js(
   'frontend/js/main-listing.js',

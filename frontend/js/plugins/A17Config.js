@@ -11,6 +11,7 @@ import a17ColorField from '@/components/ColorField.vue'
 import a17Textfield from '@/components/Textfield.vue'
 import a17HiddenField from '@/components/HiddenField.vue'
 import a17Wysiwyg from '@/components/Wysiwyg.vue'
+import a17Redactor from '@/components/Redactor.vue'
 import a17MediaField from '@/components/MediaField.vue'
 import a17Radio from '@/components/Radio.vue'
 import a17RadioGroup from '@/components/RadioGroup.vue'
@@ -51,6 +52,7 @@ const A17Config = {
     Vue.component('a17-textfield', a17Textfield)
     Vue.component('a17-hiddenfield', a17HiddenField)
     Vue.component('a17-wysiwyg', a17Wysiwyg)
+    Vue.component('a17-redactor', a17Redactor)
     Vue.component('a17-inputframe', a17Inputframe)
     Vue.component('a17-mediafield', a17MediaField)
     Vue.component('a17-radio', a17Radio)
