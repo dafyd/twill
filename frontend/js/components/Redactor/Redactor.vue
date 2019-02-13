@@ -50,20 +50,24 @@
               changed: (html) => {
                 this.handleInput(html)
                 return html
-              },
-              plugins: [
-                'alignment',
-                'fontcolor',
-                'fontfamily',
-                'fontsize',
-                // 'imagemanager',
-                'properties',
-                'specialchars',
-                'table',
-                'textdirection',
-                'video'
-              ]
-            }
+              }
+            },
+            fixedTopOffset: 80,
+            imageResizable: true,
+            imagePosition: true,
+            buttonsAdd: ['line', 'redo', 'undo', 'underline', 'ol', 'ul', 'indent', 'outdent', 'sup', 'sub'],
+            plugins: [
+              'alignment',
+              'fontcolor',
+              'fontfamily',
+              'fontsize',
+              // 'imagemanager',
+              'properties',
+              'specialchars',
+              'table',
+              'textdirection',
+              'video'
+            ]
           }
 
           var redactor = $R(this.$refs.redactor, assignIn(config, this.config))
