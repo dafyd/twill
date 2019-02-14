@@ -41,8 +41,8 @@
         @if ($disabled) disabled @endif
         @if ($readonly) readonly @endif
         @if ($inModal) :in-modal="true" @endif
-        @if ($imageUpload) imageUpload: '{{ $imageUpload }}', @endif
-        @if ($imageList) imageList: '{{ $imageList }}', @endif
+        @if ($imageUpload) imageUpload = '{{ $imageUpload }}' @endif
+        @if ($imageList) imageList = '{{ $imageList }}' @endif
         in-store="value"
     ></a17-redactor>
 @endif

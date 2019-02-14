@@ -53,14 +53,24 @@ class Media extends Model
         ];
     }
 
-    public function toRedactorArray()
+    public function toRedactorArray($store = false)
     {
-        return [
-            'id' => $this->id,
-            'name' => $this->filename,
-            'title' => $this->filename,
-            'thumb' => ImageService::getCmsUrl($this->uuid, ["h" => "256"]),
-        ];
+        if($store)
+        {
+            return [
+                'id' => $this->id,
+                'url' => ImageService::getRawUrl($this->uuid),
+            ];
+        }
+        else
+        {
+            return [
+                'id' => $this->id,
+                'title' => $this->filename,
+                'url' => ImageService::getRawUrl($this->uuid),
+                'thumb' => ImageService::getCmsUrl($this->uuid, ["h" => "256"]),
+            ];
+        }
     }
 
     public function getMetadata($name, $fallback = null)

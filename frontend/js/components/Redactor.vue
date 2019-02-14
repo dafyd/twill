@@ -4,7 +4,7 @@
       <input :name="name" type="hidden" v-model="value" />
       <template>
         <div class="wysiwyg" :class="textfieldClasses">
-          <redactor v-model="value" placeholder="Type here..." :config="configOptions" :image-upload="imageUpload" :image-list="image-list" />
+          <redactor v-model="value" placeholder="Type here..." :config="configOptions" :image-upload="imageUpload" :image-list="imageList" />
         </div>
       </template>
     </div>

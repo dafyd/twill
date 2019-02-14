@@ -32,7 +32,7 @@ class MediaLibraryController extends ModuleController implements SignS3UploadLis
     {
         parent::__construct($app, $request);
         $this->removeMiddleware('can:edit');
-        $this->middleware('can:edit', ['only' => ['signS3Upload', 'tags', 'store', 'singleUpdate', 'bulkUpdate']]);
+        $this->middleware('can:edit', ['only' => ['signS3Upload', 'tags', 'store', 'storeRedactor', 'list', 'singleUpdate', 'bulkUpdate']]);
         $this->endpointType = config('twill.media_library.endpoint_type');
     }
 
@@ -111,9 +111,9 @@ class MediaLibraryController extends ModuleController implements SignS3UploadLis
         return response()->json(['media' => $this->buildMedia($media), 'success' => true], 200);
     }
 
-    public function storeRedactor()
+    public function storeRedactor(Request $request)
     {
-        $file = $request->file('file');
+        $file = $request->file[0];
         $originalFilename = $file->getClientOriginalName();
         $filename = sanitizeFilename($originalFilename);
         $uuid = uniqid();
@@ -133,18 +133,13 @@ class MediaLibraryController extends ModuleController implements SignS3UploadLis
 
         $item = $this->repository->create($fields);
 
-        return response()->json($item->toRedactorArray(), 200);
+        return response()->json(['filekey' => $item->toRedactorArray(true)], 200);
     }
 
-    public function listRedactor()
+    public function listRedactor($prependScope = [])
     {
         $scopes = $this->filterScope($prependScope);
         $items = $this->getIndexItems($scopes);
-
-        // "thumb": "/image-thumbnail-url/1.jpg",
-        // "url": "/image-url/1.jpg",
-        // "id": "img1",
-        // "title": "Image 1"
 
         return response()->json($items->map(function ($item) {
             return $item->toRedactorArray();
