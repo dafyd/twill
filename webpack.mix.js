@@ -82,16 +82,16 @@ mix.js(
 ).scripts(
   [
     'frontend/js/libs/redactor/redactor.js',
+    // 'frontend/js/libs/redactor/_plugins/properties/properties.js',
+    // 'frontend/js/libs/redactor/_plugins/textdirection/textdirection.js',
+    // 'frontend/js/libs/redactor/_plugins/video/video.js',
     'frontend/js/libs/redactor/_plugins/alignment/alignment.js',
     'frontend/js/libs/redactor/_plugins/fontcolor/fontcolor.js',
     'frontend/js/libs/redactor/_plugins/fontfamily/fontfamily.js',
     'frontend/js/libs/redactor/_plugins/fontsize/fontsize.js',
     'frontend/js/libs/redactor/_plugins/imagemanager/imagemanager.js',
-    'frontend/js/libs/redactor/_plugins/properties/properties.js',
     'frontend/js/libs/redactor/_plugins/specialchars/specialchars.js',
-    'frontend/js/libs/redactor/_plugins/table/table.js',
-    'frontend/js/libs/redactor/_plugins/textdirection/textdirection.js',
-    'frontend/js/libs/redactor/_plugins/video/video.js'
+    'frontend/js/libs/redactor/_plugins/table/table.js'
   ],
   'public/assets/admin/js/redactor.js'
 )

@@ -53,6 +53,16 @@ class Media extends Model
         ];
     }
 
+    public function toRedactorArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->filename,
+            'title' => $this->filename,
+            'thumb' => ImageService::getCmsUrl($this->uuid, ["h" => "256"]),
+        ];
+    }
+
     public function getMetadata($name, $fallback = null)
     {
         $metadatas = (object) json_decode($this->pivot->metadatas);

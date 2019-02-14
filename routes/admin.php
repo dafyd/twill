@@ -11,6 +11,8 @@ if (config('twill.enabled.media-library')) {
         Route::put('medias/bulk-update', ['as' => 'medias.bulk-update', 'uses' => 'MediaLibraryController@bulkUpdate']);
         Route::put('medias/bulk-delete', ['as' => 'medias.bulk-delete', 'uses' => 'MediaLibraryController@bulkDelete']);
         Route::get('medias/tags', ['as' => 'medias.tags', 'uses' => 'MediaLibraryController@tags']);
+        Route::post('medias/redactor', ['as' => 'medias.redactor-upload', 'uses' => 'MediaLibraryController@storeRedactor']);
+        Route::get('medias/redactor', ['as' => 'medias.redactor-list', 'uses' => 'MediaLibraryController@listRedactor']);
         Route::resource('medias', 'MediaLibraryController', ['only' => ['index', 'store', 'destroy']]);
     });
 }

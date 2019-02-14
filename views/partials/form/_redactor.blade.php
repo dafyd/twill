@@ -6,38 +6,10 @@
     $note = $note ?? false;
     $disabled = $disabled ?? false;
     $readonly = $readonly ?? false;
-    $editSource = $editSource ?? false;
-    $toolbarOptions = $toolbarOptions ?? false;
     $inModal = $fieldsInModal ?? false;
-
-    // quill.js options
-    $activeSyntax = $syntax ?? false;
-    $theme = $customTheme ?? 'github';
-    if ($toolbarOptions) {
-        $toolbarOptions = array_map(function ($option) {
-            if ($option == 'list-unordered') {
-                return (object) ['list' => 'bullet'];
-            }
-            if ($option == 'list-ordered') {
-                return (object) ['list' => 'ordered'];
-            }
-            if ($option == 'h1') {
-                return (object) ['header' => 1];
-            }
-            if ($option == 'h2') {
-                return (object) ['header' => 2];
-            }
-            return $option;
-        }, $toolbarOptions);
-
-        $toolbarOptions = [
-            'modules' => [
-                'toolbar' => $toolbarOptions,
-                'syntax' => $activeSyntax
-            ]
-        ];
-    }
     $options = $customOptions ?? $toolbarOptions ?? false;
+    $imageUpload = $imageUpload ?? false;
+    $imageList = $imageList ?? false;
 @endphp
 
 @if($translated)
@@ -52,8 +24,9 @@
             @if ($maxlength) maxlength: {{ $maxlength }}, @endif
             @if ($disabled) disabled: true, @endif
             @if ($readonly) readonly: true, @endif
-            @if ($editSource) editSource: true, @endif
             @if ($inModal) inModal: true, @endif
+            @if ($imageUpload) imageUpload: '{{ $imageUpload }}', @endif
+            @if ($imageList) imageList: '{{ $imageList }}', @endif
             inStore: 'value'
         }"
     ></a17-locale>
@@ -67,8 +40,9 @@
         @if ($maxlength) :maxlength='{{ $maxlength }}' @endif
         @if ($disabled) disabled @endif
         @if ($readonly) readonly @endif
-        @if ($editSource) :edit-source='true' @endif
         @if ($inModal) :in-modal="true" @endif
+        @if ($imageUpload) imageUpload: '{{ $imageUpload }}', @endif
+        @if ($imageList) imageList: '{{ $imageList }}', @endif
         in-store="value"
     ></a17-redactor>
 @endif

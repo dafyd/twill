@@ -4,7 +4,7 @@
       <input :name="name" type="hidden" v-model="value" />
       <template>
         <div class="wysiwyg" :class="textfieldClasses">
-          <redactor v-model="value" placeholder="Type here..." :config="configOptions" />
+          <redactor v-model="value" placeholder="Type here..." :config="configOptions" :image-upload="imageUpload" :image-list="image-list" />
         </div>
       </template>
     </div>
@@ -28,13 +28,17 @@
     mixins: [InputMixin, InputframeMixin, LocaleMixin, FormStoreMixin],
     components: {Redactor},
     props: {
-      editSource: {
-        type: Boolean,
-        default: false
-      },
       type: {
         type: String,
         default: 'text'
+      },
+      imageUpload: {
+        type: String,
+        default: null
+      },
+      imageList: {
+        type: String,
+        default: null
       },
       prefix: {
         type: String,

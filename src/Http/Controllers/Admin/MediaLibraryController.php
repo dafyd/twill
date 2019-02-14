@@ -111,6 +111,46 @@ class MediaLibraryController extends ModuleController implements SignS3UploadLis
         return response()->json(['media' => $this->buildMedia($media), 'success' => true], 200);
     }
 
+    public function storeRedactor()
+    {
+        $file = $request->file('file');
+        $originalFilename = $file->getClientOriginalName();
+        $filename = sanitizeFilename($originalFilename);
+        $uuid = uniqid();
+
+        $fileDirectory = public_path(config('twill.media_library.local_path') . $uuid);
+
+        $file->move($fileDirectory, $filename);
+
+        list($w, $h) = getimagesize($fileDirectory . '/' . $filename);
+
+        $fields = [
+            'uuid' => config('twill.media_library.local_path') . $uuid . '/' . $filename,
+            'filename' => $originalFilename,
+            'width' => $w,
+            'height' => $h,
+        ];
+
+        $item = $this->repository->create($fields);
+
+        return response()->json($item->toRedactorArray(), 200);
+    }
+
+    public function listRedactor()
+    {
+        $scopes = $this->filterScope($prependScope);
+        $items = $this->getIndexItems($scopes);
+
+        // "thumb": "/image-thumbnail-url/1.jpg",
+        // "url": "/image-url/1.jpg",
+        // "id": "img1",
+        // "title": "Image 1"
+
+        return response()->json($items->map(function ($item) {
+            return $item->toRedactorArray();
+        }), 200);
+    }
+
     public function storeFile($request)
     {
         $originalFilename = $request->input('qqfilename');

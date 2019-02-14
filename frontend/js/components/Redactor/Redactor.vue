@@ -30,6 +30,14 @@
         type: String,
         default: null
       },
+      imageUpload: {
+        type: String,
+        default: null
+      },
+      imageList: {
+        type: String,
+        default: null
+      },
       config: {
         type: Object,
         default: () => {
@@ -43,7 +51,6 @@
     methods: {
       init () {
         /* global $R */
-        // call Redactor
         loadScript('redactor', '/assets/admin/js/redactor.js', 'text/javascript').then(() => {
           var config = {
             callbacks: {
@@ -53,21 +60,23 @@
               }
             },
             toolbarFixedTopOffset: 80,
+            imageUpload: this.imageUpload,
+            imageManagerJson: this.imageList,
             imageResizable: true,
             imagePosition: true,
             buttonsAddAfter: { after: 'deleted', buttons: [ 'underline', 'sup', 'sub' ] },
             buttonsAdd: [ 'line', 'redo', 'undo' ],
             plugins: [
+              // 'properties',
+              // 'textdirection',
+              // 'video',
               'alignment',
               'fontcolor',
               'fontfamily',
               'fontsize',
-              // 'imagemanager',
-              // 'properties',
               'specialchars',
-              'table'
-              // 'textdirection',
-              // 'video'
+              'table',
+              'imagemanager'
             ]
           }
 
@@ -87,4 +96,10 @@
 <style lang="scss">
   @import "../../libs/redactor/_scss/redactor";
   @import "../../libs/redactor/_plugins/inlinestyle/inlinestyle.css";
+
+  .redactor-toolbar {
+    a.re-button-icon {
+      padding: 9px 9px 6px;
+    }
+  }
 </style>
