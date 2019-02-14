@@ -28,6 +28,7 @@
             @if ($imageUpload) imageUpload: '{{ $imageUpload }}', @endif
             @if ($imageList) imageList: '{{ $imageList }}', @endif
             inStore: 'value'
+            uploadToken: '{{ csrf_token() }}'
         }"
     ></a17-locale>
 @else
@@ -41,9 +42,10 @@
         @if ($disabled) disabled @endif
         @if ($readonly) readonly @endif
         @if ($inModal) :in-modal="true" @endif
-        @if ($imageUpload) imageUpload: '{{ $imageUpload }}', @endif
-        @if ($imageList) imageList: '{{ $imageList }}', @endif
+        @if ($imageUpload) imageUpload='{{ $imageUpload }}', @endif
+        @if ($imageList) imageList='{{ $imageList }}', @endif
         in-store="value"
+        uploadToken='{{ csrf_token() }}'
     ></a17-redactor>
 @endif
 
