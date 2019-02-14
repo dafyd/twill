@@ -32,7 +32,7 @@ class MediaLibraryController extends ModuleController implements SignS3UploadLis
     {
         parent::__construct($app, $request);
         $this->removeMiddleware('can:edit');
-        $this->middleware('can:edit', ['only' => ['signS3Upload', 'tags', 'store', 'storeRedactor', 'list', 'singleUpdate', 'bulkUpdate']]);
+        $this->middleware('can:edit', ['only' => ['signS3Upload', 'tags', 'store', 'singleUpdate', 'bulkUpdate']]);
         $this->endpointType = config('twill.media_library.endpoint_type');
     }
 

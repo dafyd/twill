@@ -4,7 +4,7 @@
       <input :name="name" type="hidden" v-model="value" />
       <template>
         <div class="wysiwyg" :class="textfieldClasses">
-          <redactor v-model="value" placeholder="Type here..." :config="configOptions" :image-upload="imageUpload" :image-list="imageList" :upload-token="uploadToken" />
+          <redactor v-model="value" placeholder="Type here..." :config="configOptions" :image-upload="imageUpload" :image-list="image-list" />
         </div>
       </template>
     </div>
@@ -37,10 +37,6 @@
         default: null
       },
       imageList: {
-        type: String,
-        default: null
-      },
-      uploadToken: {
         type: String,
         default: null
       },

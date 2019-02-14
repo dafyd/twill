@@ -38,10 +38,6 @@
         type: String,
         default: null
       },
-      uploadToken: {
-        type: String,
-        default: null
-      },
       config: {
         type: Object,
         default: () => {
@@ -66,9 +62,6 @@
             toolbarFixedTopOffset: 80,
             imageUpload: this.imageUpload,
             imageManagerJson: this.imageList,
-            imageData: {
-              _token: this.uploadToken
-            },
             imageResizable: true,
             imagePosition: true,
             buttonsAddAfter: { after: 'deleted', buttons: [ 'underline', 'sup', 'sub' ] },
