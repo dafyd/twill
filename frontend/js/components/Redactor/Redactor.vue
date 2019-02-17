@@ -5,7 +5,7 @@
 <script>
   import { loadScript } from '@/utils/loader'
 
-  import assignIn from 'lodash/assignin'
+  import assignIn from 'lodash.assignin'
 
   export default {
     name: 'Redactor',
